@@ -26,7 +26,27 @@ System.register(["angular2/core", '../services/restaurante.service'], function(e
                     this._restauranteService = _restauranteService;
                     this.titulo = "Listado de restaurantes:";
                 }
-                RestaurantesListComponent.prototype.ngOnInit = function () { console.log('restaurantes-list component cargado'); };
+                RestaurantesListComponent.prototype.ngOnInit = function () {
+                    this.getRestaurantes();
+                    console.log('restaurantes-list component cargado');
+                };
+                RestaurantesListComponent.prototype.getRestaurantes = function () {
+                    var _this = this;
+                    this._restauranteService.getRestaurantes().subscribe(function (result) {
+                        _this.restaurantes = result.data;
+                        _this.status = result.status;
+                        if (_this.status != 'success') {
+                            alert('Error en el servidor');
+                        }
+                    }, function (error) {
+                        _this.errorMessage = error;
+                        if (_this.errorMessage !== null) {
+                            console.log(_this.errorMessage);
+                            alert('Error en la petición');
+                        }
+                    });
+                };
+                ;
                 RestaurantesListComponent = __decorate([
                     core_1.Component({
                         selector: "restaurantes-list",
