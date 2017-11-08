@@ -23,7 +23,7 @@ System.register(["angular2/core", 'angular2/router'], function(exports_1, contex
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
-                    this.titulo = "Restaurantes con Angular2";
+                    this.titulo = "Restaurantes";
                 }
                 AppComponent = __decorate([
                     core_1.Component({
