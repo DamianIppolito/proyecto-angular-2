@@ -6,9 +6,14 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             Restaurante = (function () {
-                function Restaurante() {
+                function Restaurante(id, nombre, direccion, descripcion, imagen, precio) {
+                    this.id = id;
+                    this.nombre = nombre;
+                    this.direccion = direccion;
+                    this.descripcion = descripcion;
+                    this.imagen = imagen;
+                    this.precio = precio;
                 }
-                Restaurante.prototype.construnctor = function (id, nombre, direccion, descripcion, imagen, precio) { };
                 return Restaurante;
             }());
             exports_1("Restaurante", Restaurante);
