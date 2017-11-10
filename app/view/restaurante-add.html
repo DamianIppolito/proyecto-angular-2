@@ -18,7 +18,7 @@
   </div>
   <div>
     <label for="">Precio:</label>
-    <select #precio (change)="onChange()">
+    <select #precio (change)="callPrecio(precio.value)">
       <option value="bajo">bajo</option>
       <option value="medio">medio</option>
       <option value="alto">alto</option>
