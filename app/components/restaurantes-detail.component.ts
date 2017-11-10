@@ -10,7 +10,6 @@ import { Restaurante } from '../model/restaurante';
 })
 
 export class RestaurantesDetailComponent implements OnInit{
-  public parametro;
   public restaurante:Restaurante;
   public status:string;
   public errorMessage;
@@ -19,7 +18,6 @@ export class RestaurantesDetailComponent implements OnInit{
 
   ngOnInit(){
     this.getRestaurante();
-    this.parametro = this._routeParams.get('id');
   }
 
   getRestaurante(){
