@@ -41,3 +41,64 @@ body{
   color: white;
   float: left;
 }
+
+.main{
+  padding: 15px;
+}
+
+.main h1{color: #444444;}
+
+#restaurantes-list{
+  padding: 0;
+  margin: 0;
+}
+
+.restaurante-item{
+  list-style: none;
+  width: 100%;
+  border-top: 1px solid #dddddd;
+  height: 100px;
+  float: left;
+  padding: 20px 0;
+  color:gray;
+}
+
+.restaurante-item .image{
+  height: 105px;
+  width: 105px;
+  overflow: hidden;
+  background: #cccccc;
+  float: left;
+}
+
+.restaurante-item .data{
+  float: left;
+  margin-left: 20px;
+}
+
+.restaurante-item .data h4{
+  color: #444444;
+  margin: 5px 0 0 0;
+  padding: 0;
+}
+
+.restaurante-item .data .btn{
+  font-size: 13px;
+  border: 1px solid #1976D2;
+  border-radius: 4px;
+  box-shadow: 0 0 5px #dddddd;
+  padding: 5px;
+  text-decoration: none;
+  color: white;
+  background: #0074D9;
+}
+
+.restaurante-item .data .btn.btn-editar{
+  background: #00AA00;
+  border-color: #56A600;
+}
+
+.restaurante-item .data .btn.btn-eliminar{
+  background: #E23237;
+  border-color: #F54747;
+}
