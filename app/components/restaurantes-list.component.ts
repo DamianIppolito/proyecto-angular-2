@@ -14,10 +14,12 @@ export class RestaurantesListComponent implements OnInit{
   public restaurantes:Array<Restaurante>;
   public status:string;
   public errorMessage;
+  public loading:string;
 
   constructor(private _restauranteService: RestauranteService){}
 
   ngOnInit(){
+    this.loading = 'show';
     this.getRestaurantes();
     console.log('restaurantes-list component cargado');
   }
@@ -30,6 +32,7 @@ export class RestaurantesListComponent implements OnInit{
         if(this.status != 'success'){
           alert('Error en el servidor');
         }
+        this.loading = 'hide';
       },
       error => {
         this.errorMessage = <any>error;

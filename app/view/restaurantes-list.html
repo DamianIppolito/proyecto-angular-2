@@ -1,6 +1,9 @@
 <h1>{{titulo}}</h1>
 
 <ul id="restaurantes-list">
+  <li class="loading" *ngIf="loading == 'show'" >
+    <img src="../../assets/images/loader.gif" alt="Loader" width="160" height="110">
+  </li>
   <li *ngFor="#restaurante of restaurantes" class="restaurante-item">
     <div class="image"></div>
     <div class="data">

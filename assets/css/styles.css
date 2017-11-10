@@ -102,3 +102,8 @@ body{
   background: #E23237;
   border-color: #F54747;
 }
+
+.loading{
+  list-style: none;
+  text-decoration: none;
+}
