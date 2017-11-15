@@ -39,23 +39,23 @@ System.register(["angular2/core", 'angular2/router', '../services/restaurante.se
                     this.getRestaurante();
                 };
                 RestauranteEditComponent.prototype.onSubmit = function () {
-                    // this._restauranteService.addRestaurante(this.restaurante).subscribe(
-                    //   result => {
-                    //     this.status = result.status;
-                    //     if(this.status != 'success'){
-                    //       alert('Error en el servidor');
-                    //     }else{
-                    //       this._router.navigate(["Home"]);
-                    //     }
-                    //   },
-                    //   error => {
-                    //     this.errorMessage = <any>error;
-                    //     if(this.errorMessage !== null){
-                    //       console.log(this.errorMessage);
-                    //       alert('Error en la petición');
-                    //     }
-                    //   }
-                    // );
+                    var _this = this;
+                    var id = this._routeParams.get('id');
+                    this._restauranteService.editRestaurante(id, this.restaurante).subscribe(function (result) {
+                        _this.status = result.status;
+                        if (_this.status != 'success') {
+                            alert('Error en el servidor');
+                        }
+                        else {
+                            _this._router.navigate(["Home"]);
+                        }
+                    }, function (error) {
+                        _this.errorMessage = error;
+                        if (_this.errorMessage !== null) {
+                            console.log(_this.errorMessage);
+                            alert('Error en la petición');
+                        }
+                    });
                 };
                 RestauranteEditComponent.prototype.getRestaurante = function () {
                     var _this = this;
