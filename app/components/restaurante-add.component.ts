@@ -14,6 +14,7 @@ export class RestauranteAddComponent implements OnInit{
   public restaurante:Restaurante;
   public status:string;
   public errorMessage;
+  public resultUpload;
 
   public filesToUpload: Array<File>;
 
@@ -57,8 +58,9 @@ export class RestauranteAddComponent implements OnInit{
 
     this.makeFileRequest("http://localhost:90/slim/restaurantes-api.php/upload-file", [], this.filesToUpload).then(
       (result) => {
-        this.restaurante.imagen = result.filename;
-        console.log(result.filename);
+        this.resultUpload = result;
+        this.restaurante.imagen = this.resultUpload.filename;
+        console.log(this.resultUpload.filename);
       },
       (error) => {
         this.errorMessage = <any>error;
