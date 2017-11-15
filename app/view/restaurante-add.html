@@ -25,6 +25,10 @@
     </select>
   </div>
   <div>
+    <label for="">Imagen:</label>
+    <input type="file" placeholder="Subir imagen..." (change)="fileChangeEvent($event)">
+  </div>
+  <div>
     <input type="submit" value="{{titulo}}" [disabled]="!formRestaurante.form.valid">
   </div>
 </form>
