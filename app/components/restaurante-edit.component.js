@@ -11,7 +11,7 @@ System.register(["angular2/core", 'angular2/router', '../services/restaurante.se
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, router_1, restaurante_service_1, restaurante_1;
-    var RestauranteAddComponent;
+    var RestauranteEditComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -27,25 +27,47 @@ System.register(["angular2/core", 'angular2/router', '../services/restaurante.se
                 restaurante_1 = restaurante_1_1;
             }],
         execute: function() {
-            RestauranteAddComponent = (function () {
-                function RestauranteAddComponent(_restauranteService, _routeParams, _router) {
+            RestauranteEditComponent = (function () {
+                function RestauranteEditComponent(_restauranteService, _routeParams, _router) {
                     this._restauranteService = _restauranteService;
                     this._routeParams = _routeParams;
                     this._router = _router;
-                    this.titulo = "Crear nuevo Restaurante";
+                    this.titulo = "Editar Restaurante";
                 }
-                RestauranteAddComponent.prototype.ngOnInit = function () {
-                    this.restaurante = new restaurante_1.Restaurante(0, '', '', '', null, 'bajo');
+                RestauranteEditComponent.prototype.ngOnInit = function () {
+                    this.restaurante = new restaurante_1.Restaurante(parseInt(this._routeParams.get('id')), this._routeParams.get('nombre'), this._routeParams.get('direccion'), this._routeParams.get('descripcion'), null, this._routeParams.get('precio'));
+                    this.getRestaurante();
                 };
-                RestauranteAddComponent.prototype.onSubmit = function () {
+                RestauranteEditComponent.prototype.onSubmit = function () {
+                    // this._restauranteService.addRestaurante(this.restaurante).subscribe(
+                    //   result => {
+                    //     this.status = result.status;
+                    //     if(this.status != 'success'){
+                    //       alert('Error en el servidor');
+                    //     }else{
+                    //       this._router.navigate(["Home"]);
+                    //     }
+                    //   },
+                    //   error => {
+                    //     this.errorMessage = <any>error;
+                    //     if(this.errorMessage !== null){
+                    //       console.log(this.errorMessage);
+                    //       alert('Error en la petición');
+                    //     }
+                    //   }
+                    // );
+                };
+                RestauranteEditComponent.prototype.getRestaurante = function () {
                     var _this = this;
-                    this._restauranteService.addRestaurante(this.restaurante).subscribe(function (result) {
+                    var id = this._routeParams.get('id');
+                    this._restauranteService.getRestaurante(id).subscribe(function (result) {
+                        _this.restaurante = result.data;
                         _this.status = result.status;
                         if (_this.status != 'success') {
-                            alert('Error en el servidor');
+                            _this._router.navigate(["Home"]);
                         }
                         else {
-                            _this._router.navigate(["Home"]);
+                            console.log(result.data);
                         }
                     }, function (error) {
                         _this.errorMessage = error;
@@ -55,21 +77,21 @@ System.register(["angular2/core", 'angular2/router', '../services/restaurante.se
                         }
                     });
                 };
-                RestauranteAddComponent.prototype.callPrecio = function (value) {
+                RestauranteEditComponent.prototype.callPrecio = function (value) {
                     this.restaurante.precio = value;
                 };
-                RestauranteAddComponent = __decorate([
+                RestauranteEditComponent = __decorate([
                     core_1.Component({
-                        selector: "restaurantes-add",
+                        selector: "restaurantes-edit",
                         templateUrl: "app/view/restaurante-add.html",
                         providers: [restaurante_service_1.RestauranteService]
                     }), 
                     __metadata('design:paramtypes', [restaurante_service_1.RestauranteService, router_1.RouteParams, router_1.Router])
-                ], RestauranteAddComponent);
-                return RestauranteAddComponent;
+                ], RestauranteEditComponent);
+                return RestauranteEditComponent;
             }());
-            exports_1("RestauranteAddComponent", RestauranteAddComponent);
+            exports_1("RestauranteEditComponent", RestauranteEditComponent);
         }
     }
 });
-//# sourceMappingURL=restaurante-add.component.js.map
+//# sourceMappingURL=restaurante-edit.component.js.map
