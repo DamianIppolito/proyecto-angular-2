@@ -31,4 +31,8 @@ export class RestauranteService{
 
     return this._http.post("http://localhost:90/slim/restaurantes-api.php/update-restaurante/"+id, params, {headers:headers}).map(res => res.json());
   }
+
+  deleteRestaurante(id:string){
+    return this._http.get("http://localhost:90/slim/restaurantes-api.php/delete-restaurante/"+id).map(res => res.json());
+  }
 }
