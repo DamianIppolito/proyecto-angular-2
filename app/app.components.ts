@@ -21,4 +21,5 @@ import { RestauranteEditComponent } from './components/restaurante-edit.componen
 
 export class AppComponent{
   public titulo:string = "Restaurantes";
+  public fecha = new Date(1990,6,27);
 }

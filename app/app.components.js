@@ -17,6 +17,7 @@ var restaurante_edit_component_1 = require('./components/restaurante-edit.compon
 var AppComponent = (function () {
     function AppComponent() {
         this.titulo = "Restaurantes";
+        this.fecha = new Date(1990, 6, 27);
     }
     AppComponent = __decorate([
         core_1.Component({
