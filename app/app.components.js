@@ -14,6 +14,7 @@ var restaurantes_list_component_1 = require('./components/restaurantes-list.comp
 var restaurantes_detail_component_1 = require('./components/restaurantes-detail.component');
 var restaurante_add_component_1 = require('./components/restaurante-add.component');
 var restaurante_edit_component_1 = require('./components/restaurante-edit.component');
+var pruebas_pipe_1 = require("./pipes/pruebas.pipe");
 var AppComponent = (function () {
     function AppComponent() {
         this.titulo = "Restaurantes";
@@ -23,7 +24,8 @@ var AppComponent = (function () {
         core_1.Component({
             selector: "mi-app",
             templateUrl: "app/view/home.html",
-            directives: [restaurantes_list_component_1.RestaurantesListComponent, router_deprecated_1.ROUTER_DIRECTIVES, restaurantes_detail_component_1.RestaurantesDetailComponent]
+            directives: [restaurantes_list_component_1.RestaurantesListComponent, router_deprecated_1.ROUTER_DIRECTIVES, restaurantes_detail_component_1.RestaurantesDetailComponent],
+            pipes: [pruebas_pipe_1.PruebasPipe]
         }),
         router_deprecated_1.RouteConfig([
             { path: '/', name: 'Home', component: restaurantes_list_component_1.RestaurantesListComponent, useAsDefault: true },

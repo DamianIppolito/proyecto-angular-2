@@ -4,11 +4,13 @@ import { RestaurantesListComponent } from './components/restaurantes-list.compon
 import { RestaurantesDetailComponent } from './components/restaurantes-detail.component';
 import { RestauranteAddComponent } from './components/restaurante-add.component';
 import { RestauranteEditComponent } from './components/restaurante-edit.component';
+import {PruebasPipe} from "./pipes/pruebas.pipe";
 
 @Component({
   selector: "mi-app",
   templateUrl: "app/view/home.html",
-  directives: [RestaurantesListComponent, ROUTER_DIRECTIVES, RestaurantesDetailComponent]
+  directives: [RestaurantesListComponent, ROUTER_DIRECTIVES, RestaurantesDetailComponent],
+  pipes: [PruebasPipe]
 })
 
 @RouteConfig([
