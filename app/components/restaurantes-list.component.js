@@ -8,12 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var router_deprecated_1 = require('@angular/router-deprecated');
+var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var restaurante_service_1 = require('../services/restaurante.service');
 var RestaurantesListComponent = (function () {
-    function RestaurantesListComponent(_restauranteService) {
+    function RestaurantesListComponent(_restauranteService, _route, _router) {
         this._restauranteService = _restauranteService;
+        this._route = _route;
+        this._router = _router;
         this.titulo = "Listado de restaurantes:";
     }
     RestaurantesListComponent.prototype.ngOnInit = function () {
@@ -65,12 +67,12 @@ var RestaurantesListComponent = (function () {
         core_1.Component({
             selector: "restaurantes-list",
             templateUrl: "app/view/restaurantes-list.html",
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES],
             providers: [restaurante_service_1.RestauranteService]
         }), 
-        __metadata('design:paramtypes', [restaurante_service_1.RestauranteService])
+        __metadata('design:paramtypes', [restaurante_service_1.RestauranteService, (typeof (_a = typeof router_1.ActivatedRoute !== 'undefined' && router_1.ActivatedRoute) === 'function' && _a) || Object, router_1.Router])
     ], RestaurantesListComponent);
     return RestaurantesListComponent;
+    var _a;
 }());
 exports.RestaurantesListComponent = RestaurantesListComponent;
 //# sourceMappingURL=restaurantes-list.component.js.map

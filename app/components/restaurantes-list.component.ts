@@ -1,12 +1,12 @@
-import  {Component, OnInit} from "@angular/core";
-import { ROUTER_DIRECTIVES,RouteConfig,Router } from '@angular/router-deprecated';
+import {Component, OnInit} from '@angular/core';
+import { ActivatedRoute,Params,Router } from '@angular/router';
+
 import { RestauranteService } from '../services/restaurante.service';
 import { Restaurante } from '../model/restaurante';
 
 @Component({
   selector: "restaurantes-list",
   templateUrl: "app/view/restaurantes-list.html",
-  directives: [ROUTER_DIRECTIVES],
   providers: [RestauranteService]
 })
 
@@ -18,7 +18,11 @@ export class RestaurantesListComponent implements OnInit{
   public loading:string;
   public confirmado;
 
-  constructor(private _restauranteService: RestauranteService){}
+  constructor(
+    private _restauranteService: RestauranteService,
+    private _route: ActivatedRoute,
+    private _router: Router
+  ){}
 
   ngOnInit(){
     this.loading = 'show';

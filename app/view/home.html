@@ -2,7 +2,7 @@
 <br/>
 {{4 | pruebas:7}}
 <header id="header">
-  <a [routerLink]="['Home']">
+  <a [routerLink]="['/']">
     <img id="logo" src="../../assets/images/angular.png" alt="Angular">
   </a>
   <h1>{{titulo}}</h1>
@@ -10,9 +10,9 @@
 </header>
 <nav id="nav">
   <ul>
-    <li><a [routerLink]="['Home']">Inicio</a></li>
-    <li><a [routerLink]="['CrearRestaurante']">Crear Restaurante</a></li>
-    <li><a [routerLink]="['DondeComoHoy',{random:'true'}]">¿Donde como hoy?</a></li>
+    <li><a [routerLink]="['/']">Inicio</a></li>
+    <li><a [routerLink]="['/crear-restaurante']">Crear Restaurante</a></li>
+    <li><a [routerLink]="['/donde-como-hoy', true]">¿Donde como hoy?</a></li>
   </ul>
 </nav>
 <section class="main">

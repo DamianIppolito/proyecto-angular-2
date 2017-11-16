@@ -3,22 +3,22 @@
 <form #formRestaurante="ngForm" (ngSubmit)="onSubmit()">
   <div>
     <label for="">Nombre:</label>
-    <input type="text" #nombre="ngForm" ngControl="nombre" [(ngModel)]="restaurante.nombre" required/>
+    <input type="text" #nombre="ngModel" name="nombre" [(ngModel)]="restaurante.nombre" required/>
     <span *ngIf="!nombre.valid">El nombre es obliatorio!!</span>
   </div>
   <div>
     <label for="">Dirección:</label>
-    <input type="text" #direccion="ngForm" ngControl="direccion" [(ngModel)]="restaurante.direccion" required/>
+    <input type="text" #direccion="ngModel" name="direccion" [(ngModel)]="restaurante.direccion" required/>
     <span *ngIf="!direccion.valid">La dirección es obliatoria!!</span>
   </div>
   <div>
     <label for="">Descripción:</label>
-    <textarea #descripcion="ngForm" ngControl="descripcion" [(ngModel)]="restaurante.descripcion" required></textarea>
+    <textarea #descripcion="ngModel" name="descripcion" [(ngModel)]="restaurante.descripcion" required></textarea>
     <span *ngIf="!descripcion.valid">La descipción es obliatoria!!</span>
   </div>
   <div>
     <label for="">Precio:</label>
-    <select #precio (change)="callPrecio(precio.value)">
+    <select #precio name="precio" (change)="callPrecio(precio.value)">
       <option value="bajo" [attr.selected]="restaurante.precio === 'bajo' ? 'selected' : null">bajo</option>
       <option value="medio" [attr.selected]="restaurante.precio === 'medio' ? 'selected' : null">medio</option>
       <option value="alto" [attr.selected]="restaurante.precio === 'alto' ? 'selected' : null">alto</option>

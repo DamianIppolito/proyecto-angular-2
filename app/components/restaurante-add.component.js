@@ -8,14 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var router_deprecated_1 = require('@angular/router-deprecated');
+var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var restaurante_service_1 = require('../services/restaurante.service');
 var restaurante_1 = require('../model/restaurante');
 var RestauranteAddComponent = (function () {
-    function RestauranteAddComponent(_restauranteService, _routeParams, _router) {
+    function RestauranteAddComponent(_restauranteService, _route, _router) {
         this._restauranteService = _restauranteService;
-        this._routeParams = _routeParams;
+        this._route = _route;
         this._router = _router;
         this.titulo = "Crear nuevo Restaurante";
     }
@@ -30,7 +30,7 @@ var RestauranteAddComponent = (function () {
                 alert('Error en el servidor');
             }
             else {
-                _this._router.navigate(["Home"]);
+                _this._router.navigate(["/"]);
             }
         }, function (error) {
             _this.errorMessage = error;
@@ -85,9 +85,10 @@ var RestauranteAddComponent = (function () {
             templateUrl: "app/view/restaurante-add.html",
             providers: [restaurante_service_1.RestauranteService]
         }), 
-        __metadata('design:paramtypes', [restaurante_service_1.RestauranteService, router_deprecated_1.RouteParams, router_deprecated_1.Router])
+        __metadata('design:paramtypes', [restaurante_service_1.RestauranteService, (typeof (_a = typeof router_1.ActivatedRoute !== 'undefined' && router_1.ActivatedRoute) === 'function' && _a) || Object, router_1.Router])
     ], RestauranteAddComponent);
     return RestauranteAddComponent;
+    var _a;
 }());
 exports.RestauranteAddComponent = RestauranteAddComponent;
 //# sourceMappingURL=restaurante-add.component.js.map

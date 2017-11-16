@@ -1,5 +1,6 @@
-import  {Component, OnInit} from "@angular/core";
-import { RouteParams, Router } from '@angular/router-deprecated';
+import {Component, OnInit} from '@angular/core';
+import { ActivatedRoute,Params,Router } from '@angular/router';
+
 import { RestauranteService } from '../services/restaurante.service';
 import { Restaurante } from '../model/restaurante';
 
@@ -21,7 +22,7 @@ export class RestauranteAddComponent implements OnInit{
 
   constructor(
     private _restauranteService: RestauranteService,
-    private _routeParams: RouteParams,
+    private _route: ActivatedRoute,
     private _router: Router
   ){}
 
@@ -36,7 +37,7 @@ export class RestauranteAddComponent implements OnInit{
         if(this.status != 'success'){
           alert('Error en el servidor');
         }else{
-          this._router.navigate(["Home"]);
+          this._router.navigate(["/"]);
         }
       },
       error => {

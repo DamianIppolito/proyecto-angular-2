@@ -8,58 +8,62 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var router_deprecated_1 = require('@angular/router-deprecated');
+var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var restaurante_service_1 = require('../services/restaurante.service');
 var restaurante_1 = require('../model/restaurante');
 var RestauranteEditComponent = (function () {
-    function RestauranteEditComponent(_restauranteService, _routeParams, _router) {
+    function RestauranteEditComponent(_restauranteService, _route, _router) {
         this._restauranteService = _restauranteService;
-        this._routeParams = _routeParams;
+        this._route = _route;
         this._router = _router;
         this.titulo = "Editar Restaurante";
     }
     RestauranteEditComponent.prototype.ngOnInit = function () {
-        this.restaurante = new restaurante_1.Restaurante(parseInt(this._routeParams.get('id')), this._routeParams.get('nombre'), this._routeParams.get('direccion'), this._routeParams.get('descripcion'), null, this._routeParams.get('precio'));
+        this.restaurante = new restaurante_1.Restaurante(0, '', '', '', null, 'bajo');
         this.getRestaurante();
     };
     RestauranteEditComponent.prototype.onSubmit = function () {
         var _this = this;
-        var id = this._routeParams.get('id');
-        this._restauranteService.editRestaurante(id, this.restaurante).subscribe(function (result) {
-            _this.status = result.status;
-            if (_this.status != 'success') {
-                alert('Error en el servidor');
-            }
-            else {
-                _this._router.navigate(["Home"]);
-            }
-        }, function (error) {
-            _this.errorMessage = error;
-            if (_this.errorMessage !== null) {
-                console.log(_this.errorMessage);
-                alert('Error en la petición');
-            }
+        this._route.params.forEach(function (params) {
+            var id = params['id'];
+            _this._restauranteService.editRestaurante(id, _this.restaurante).subscribe(function (result) {
+                _this.status = result.status;
+                if (_this.status != 'success') {
+                    alert('Error en el servidor');
+                }
+                else {
+                    _this._router.navigate(["/"]);
+                }
+            }, function (error) {
+                _this.errorMessage = error;
+                if (_this.errorMessage !== null) {
+                    console.log(_this.errorMessage);
+                    alert('Error en la petición');
+                }
+            });
         });
     };
     RestauranteEditComponent.prototype.getRestaurante = function () {
         var _this = this;
-        var id = this._routeParams.get('id');
-        this._restauranteService.getRestaurante(id).subscribe(function (result) {
-            _this.restaurante = result.data;
-            _this.status = result.status;
-            if (_this.status != 'success') {
-                _this._router.navigate(["Home"]);
-            }
-            else {
-                console.log(result.data);
-            }
-        }, function (error) {
-            _this.errorMessage = error;
-            if (_this.errorMessage !== null) {
-                console.log(_this.errorMessage);
-                alert('Error en la petición');
-            }
+        this._route.params.forEach(function (params) {
+            var id = params['id'];
+            _this._restauranteService.getRestaurante(id).subscribe(function (result) {
+                _this.restaurante = result.data;
+                _this.status = result.status;
+                if (_this.status != 'success') {
+                    _this._router.navigate(["/"]);
+                }
+                else {
+                    console.log(result.data);
+                }
+            }, function (error) {
+                _this.errorMessage = error;
+                if (_this.errorMessage !== null) {
+                    console.log(_this.errorMessage);
+                    alert('Error en la petición');
+                }
+            });
         });
     };
     RestauranteEditComponent.prototype.callPrecio = function (value) {
@@ -107,9 +111,10 @@ var RestauranteEditComponent = (function () {
             templateUrl: "app/view/restaurante-add.html",
             providers: [restaurante_service_1.RestauranteService]
         }), 
-        __metadata('design:paramtypes', [restaurante_service_1.RestauranteService, router_deprecated_1.RouteParams, router_deprecated_1.Router])
+        __metadata('design:paramtypes', [restaurante_service_1.RestauranteService, (typeof (_a = typeof router_1.ActivatedRoute !== 'undefined' && router_1.ActivatedRoute) === 'function' && _a) || Object, router_1.Router])
     ], RestauranteEditComponent);
     return RestauranteEditComponent;
+    var _a;
 }());
 exports.RestauranteEditComponent = RestauranteEditComponent;
 //# sourceMappingURL=restaurante-edit.component.js.map

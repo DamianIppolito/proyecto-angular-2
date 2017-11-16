@@ -4,9 +4,9 @@
     <h1>Restaurante: {{restaurante.nombre}}</h1>
     <p class="precio">
       <span [ngSwitch]="restaurante.precio">
-        <span *ngSwitchWhen="'bajo'">Entre 2,5€ y 6€</span>
-        <span *ngSwitchWhen="'medio'">Entre 4,5€ y 9€</span>
-        <span *ngSwitchWhen="'alto'">Entre 7,5€ y 20€</span>
+        <span *ngSwitchCase="'bajo'">Entre 2,5€ y 6€</span>
+        <span *ngSwitchCase="'medio'">Entre 4,5€ y 9€</span>
+        <span *ngSwitchCase="'alto'">Entre 7,5€ y 20€</span>
       </span>
     </p>
     <p class="direccion">{{restaurante.direccion}}</p>
