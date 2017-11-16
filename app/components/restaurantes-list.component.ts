@@ -1,5 +1,5 @@
-import  {Component, OnInit} from "angular2/core";
-import { ROUTER_DIRECTIVES,RouteConfig,Router } from 'angular2/router';
+import  {Component, OnInit} from "@angular/core";
+import { ROUTER_DIRECTIVES,RouteConfig,Router } from '@angular/router-deprecated';
 import { RestauranteService } from '../services/restaurante.service';
 import { Restaurante } from '../model/restaurante';
 
